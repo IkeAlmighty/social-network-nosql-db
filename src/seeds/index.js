@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const { User, Thought } = require('../models');
-const dotenv = require('dotenv');
+import mongoose from 'mongoose';
+import { User, Thought } from '../models/index.js';
+import dotenv from 'dotenv';
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialNetworkDB', {

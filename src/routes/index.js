@@ -1,14 +1,10 @@
-const router = require('express').Router();
-const userRoutes = require('./api/userRoutes');
-const thoughtRoutes = require('./api/thoughtRoutes');
+import express from 'express';
+import userRoutes from './api/userRoutes.js';
+import thoughtRoutes from './api/thoughtRoutes.js';
+
+const router = express.Router();
 
 router.use('/api/users', userRoutes);
 router.use('/api/thoughts', thoughtRoutes);
 
-module.exports = router;
-
-// models/index.js
-const User = require('./User');
-const Thought = require('./Thought');
-
-module.exports = { User, Thought };
+export default router;
