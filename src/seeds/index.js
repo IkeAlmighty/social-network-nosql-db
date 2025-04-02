@@ -25,6 +25,10 @@ const seedData = async () => {
             { thoughtText: 'JavaScript is powerful.', username: 'charlie' },
         ]);
 
+        // add a reaction to alice's thought
+        const thought = await Thought.findOne({ thoughtText: 'MongoDB is great!', username: 'alice' });
+        thought.reactions.push({ reactionBody: "😊", username: 'bob' });
+
         // Update users with thoughts
         for (let i = 0; i < thoughts.length; i++) {
             await User.findOneAndUpdate(

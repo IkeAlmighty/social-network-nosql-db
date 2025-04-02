@@ -48,7 +48,8 @@ export const createThought = async (req, res) => {
 // Update a thought by ID
 export const updateThought = async (req, res) => {
     try {
-        const thought = await Thought.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const { thoughtText } = req.body;
+        const thought = await Thought.findByIdAndUpdate(req.params.id, { thoughtText }, { new: true });
         if (!thought) {
             return res.status(404).json({ message: 'Thought not found' });
         }
@@ -87,7 +88,9 @@ export const createReaction = async (req, res) => {
             return res.status(404).json({ message: 'Thought not found' });
         }
 
-        thought.reactions.push(req.body);
+        const { reactionBody, username } = req.body;
+
+        thought.reactions.push({ reactionBody, username });
         await thought.save();
 
         res.status(200).json(thought);
@@ -104,16 +107,18 @@ export const deleteReaction = async (req, res) => {
             return res.status(404).json({ message: 'Thought not found' });
         }
 
+        // check to make sure reaction exists!
         const reaction = thought.reactions.id(req.params.reactionId);
         if (!reaction) {
             return res.status(404).json({ message: 'Reaction not found' });
         }
 
-        reaction.remove();
+        thought.reactions.pull(req.params.reactionId)
         await thought.save();
 
         res.status(200).json({ message: 'Reaction deleted successfully' });
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 };

@@ -1,0 +1,317 @@
+type: collection.insomnia.rest/5.0
+name: Tests
+meta:
+  id: wrk_4f266533aab64bfbb5e63e82dc85b1b8
+  created: 1743541038190
+  modified: 1743541379875
+collection:
+  - name: Users
+    meta:
+      id: fld_79ea7e380f0a44feab9d0167ab33a17d
+      created: 1743541254249
+      modified: 1743541254249
+      sortKey: -1743541254249
+    children:
+      - name: deleteFriend
+        meta:
+          id: req_bc0e0baae6e643979e1733e34a3ba6e8
+          created: 1743541049900
+          modified: 1743617764089
+          isPrivate: false
+          sortKey: -1743541267928.25
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: addFriend
+        meta:
+          id: req_e89a83b3a73f43d5aa922784561dac15
+          created: 1743541050890
+          modified: 1743617759316
+          isPrivate: false
+          sortKey: -1743541267934.5
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: deleteUser
+        meta:
+          id: req_4eb640d5f97449158470e8c4a1ee6703
+          created: 1743541051980
+          modified: 1743617753324
+          isPrivate: false
+          sortKey: -1743541267947
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: updateUser
+        meta:
+          id: req_b77fe73eaf574dc7b5387ed999c188b6
+          created: 1743541065779
+          modified: 1743617747912
+          isPrivate: false
+          sortKey: -1743541267972
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: createUser
+        meta:
+          id: req_17e839954efd40be94f21d6c672a7f49
+          created: 1743541066574
+          modified: 1743617742571
+          isPrivate: false
+          sortKey: -1743541267997
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/users
+        name: allUsers
+        meta:
+          id: req_f98ec5ecb5f64a18bac31b4e219919a6
+          created: 1743541067342
+          modified: 1743625303214
+          isPrivate: false
+          sortKey: -1743541268022
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Thoughts
+    meta:
+      id: fld_7f0b0f7194634b75b00ac789c5d40884
+      created: 1743541373656
+      modified: 1743541373656
+      sortKey: -1743541373656
+    children:
+      - url: http://localhost:3001/api/thoughts/67ed9489a0552f245ecda68b/reactions/67ed9d5af45ee03e9b5f90d4
+        name: deleteReaction
+        meta:
+          id: req_090e03758e36432689950c6055f5cf5b
+          created: 1743541394808
+          modified: 1743625580809
+          isPrivate: false
+          sortKey: -1743541397480
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/thoughts/67ed9489a0552f245ecda68b/reactions
+        name: createReaction
+        meta:
+          id: req_5ba0070c76aa474999f6efd6b5946ac8
+          created: 1743541399154
+          modified: 1743625362302
+          isPrivate: false
+          sortKey: -1743541399154
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"reactionBody": "😊",
+            	"username": "alice"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/thoughts/67ed9e80fcfafe94690f1099
+        name: deleteThought
+        meta:
+          id: req_46bbbb43db944472b0e02d6c4127702e
+          created: 1743541410801
+          modified: 1743625981309
+          isPrivate: false
+          sortKey: -1743541410801
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/thoughts/67ed99916e458434554eab49
+        name: updateThought
+        meta:
+          id: req_6bedfd7f1e284198ac143a0e326b76eb
+          created: 1743541411864
+          modified: 1743624995415
+          isPrivate: false
+          sortKey: -1743541411864
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "67ed99916e458434554eab49",
+            	"thoughtText": "This is an updated thought text."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/thoughts/67ed99916e458434554eab49
+        name: getThoughtById
+        meta:
+          id: req_d571e13778fb4c37a66026af5442e385
+          created: 1743541412778
+          modified: 1743624642798
+          isPrivate: false
+          sortKey: -1743541412778
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/thoughts
+        name: createThought
+        meta:
+          id: req_65a1da15347e4234842c991c7b5e1c28
+          created: 1743541413582
+          modified: 1743624591282
+          isPrivate: false
+          sortKey: -1743541413582
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"userId": "67ed9489a0552f245ecda686",
+            	"username": "alice",
+            	"thoughtText": "This is a test thought!!!!"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/thoughts
+        name: allThoughts
+        meta:
+          id: req_73b066abc4e44173bca3ebb4d658437c
+          created: 1743541414447
+          modified: 1743622559162
+          isPrivate: false
+          sortKey: -1743541414447
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_30c91c9c028fd3194ebea26351b2bb6667241b16
+    created: 1743541038211
+    modified: 1743541038211
+environments:
+  name: Base Environment
+  meta:
+    id: env_30c91c9c028fd3194ebea26351b2bb6667241b16
+    created: 1743541038203
+    modified: 1743541038203
+    isPrivate: false
