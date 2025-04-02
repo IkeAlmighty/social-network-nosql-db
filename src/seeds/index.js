@@ -3,10 +3,7 @@ import { User, Thought } from '../models/index.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialNetworkDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialNetworkDB');
 
 const seedData = async () => {
     try {
@@ -19,6 +16,7 @@ const seedData = async () => {
             { username: 'bob', email: 'bob@example.com' },
             { username: 'charlie', email: 'charlie@example.com' },
         ]);
+
 
         // Create thoughts and associate them with users
         const thoughts = await Thought.insertMany([
