@@ -1,5 +1,4 @@
 import { User } from '../models/index.js';
-import { ObjectId } from 'mongodb';
 
 // Get all users
 export const getUsers = async (_req, res) => {
@@ -56,7 +55,7 @@ export const deleteUser = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
         // Delete associated thoughts (BONUS)
-        await Thought.deleteMany({ _id: new ObjectId(req.params._id) });
+        await Thought.deleteMany({ username: user.username });
         res.status(200).json({ message: 'User and associated thoughts deleted' });
     } catch (err) {
         res.status(500).json(err);
@@ -95,8 +94,8 @@ export const removeFriend = async (req, res) => {
             return res.status(404).json({ message: 'User or Friend not found' });
         }
 
-        user.friends.pull(friend._id);
-        friend.friends.pull(user._id);
+        user.friends.pull(friend.id);
+        friend.friends.pull(user.id);
 
         await user.save();
         await friend.save();
