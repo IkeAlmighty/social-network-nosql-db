@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 db.once('open', () => {
+    console.log('connected to mongodb...')
     app.listen(PORT, () => {
         console.log(`API server running on port ${PORT}!`);
     });
