@@ -1,7 +1,7 @@
 import { Thought, User } from '../models/index.js';
 
 // Get all thoughts
-export const getThoughts = async (req, res) => {
+export const getThoughts = async (_req, res) => {
     try {
         const thoughts = await Thought.find();
         res.status(200).json(thoughts);
@@ -26,12 +26,16 @@ export const getThoughtById = async (req, res) => {
 // Create a new thought
 export const createThought = async (req, res) => {
     try {
-        const thought = await Thought.create(req.body);
+        const { thoughtText, username } = req.body;
+        const thought = await Thought.create({ thoughtText, username });
+
         // Push the created thought's ID to the user's thoughts array
-        const user = await User.findById(req.body.userId);
+        const user = await User.findOne({ username });
+
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
+
         user.thoughts.push(thought._id);
         await user.save();
 
@@ -63,7 +67,7 @@ export const deleteThought = async (req, res) => {
         }
 
         // Remove the thought's ID from the associated user's thoughts array
-        const user = await User.findById(thought.userId);
+        const user = await User.findOne({ username: thought.username });
         if (user) {
             user.thoughts.pull(thought._id);
             await user.save();

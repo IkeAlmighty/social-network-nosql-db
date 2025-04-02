@@ -1,7 +1,8 @@
 import { User } from '../models/index.js';
+import { ObjectId } from 'mongodb';
 
 // Get all users
-export const getUsers = async (req, res) => {
+export const getUsers = async (_req, res) => {
     try {
         const users = await User.find();
         res.status(200).json(users);
@@ -26,7 +27,8 @@ export const getUserById = async (req, res) => {
 // Create a new user
 export const createUser = async (req, res) => {
     try {
-        const user = await User.create(req.body);
+        const { username, email } = req.body;
+        const user = await User.create({ username, email });
         res.status(201).json(user);
     } catch (err) {
         res.status(500).json(err);
@@ -54,7 +56,7 @@ export const deleteUser = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
         // Delete associated thoughts (BONUS)
-        await Thought.deleteMany({ userId: req.params.id });
+        await Thought.deleteMany({ _id: new ObjectId(req.params._id) });
         res.status(200).json({ message: 'User and associated thoughts deleted' });
     } catch (err) {
         res.status(500).json(err);
