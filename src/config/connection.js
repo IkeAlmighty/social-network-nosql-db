@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
+import { configDotenv } from 'dotenv';
+configDotenv();
 
-mongoose.connect('mongodb://localhost:27017/socialDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+const { MONGODB_URI } = process.env;
+
+mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/socialNetworkDB');
 
 export default mongoose.connection;
