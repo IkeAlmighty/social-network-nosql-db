@@ -1,22 +1,23 @@
 type: collection.insomnia.rest/5.0
 name: Tests
 meta:
-  id: wrk_4f266533aab64bfbb5e63e82dc85b1b8
-  created: 1743541038190
-  modified: 1743541379875
+  id: wrk_f023f3ca9e6e486588b825df91ffbe84
+  created: 1743637092727
+  modified: 1743637092727
 collection:
   - name: Users
     meta:
-      id: fld_79ea7e380f0a44feab9d0167ab33a17d
+      id: fld_531f75e88b5c4ab6b3cf80138f4c631f
       created: 1743541254249
       modified: 1743541254249
       sortKey: -1743541254249
     children:
-      - name: deleteFriend
+      - url: http://localhost:3001/api/users/67edcd2002b13bd3c4614368/friends/67edcd2002b13bd3c4614369
+        name: deleteFriend
         meta:
-          id: req_bc0e0baae6e643979e1733e34a3ba6e8
+          id: req_94b0dbdbf11e489384dc5a40aabef9ba
           created: 1743541049900
-          modified: 1743617764089
+          modified: 1743639614702
           isPrivate: false
           sortKey: -1743541267928.25
         method: DELETE
@@ -31,11 +32,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - name: addFriend
+      - url: http://localhost:3001/api/users/67edcd2002b13bd3c4614368/friends/67edd3fcd571dfc1f22a3e68
+        name: addFriend
         meta:
-          id: req_e89a83b3a73f43d5aa922784561dac15
+          id: req_b0628954048c465f9a4ec3e969b9426f
           created: 1743541050890
-          modified: 1743617759316
+          modified: 1743639581721
           isPrivate: false
           sortKey: -1743541267934.5
         method: POST
@@ -50,11 +52,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - name: deleteUser
+      - url: http://localhost:3001/api/users/67edcd2002b13bd3c461436a
+        name: deleteUser
         meta:
-          id: req_4eb640d5f97449158470e8c4a1ee6703
+          id: req_c6b43ecf5df84873a42f3bf9470f4fd5
           created: 1743541051980
-          modified: 1743617753324
+          modified: 1743639301602
           isPrivate: false
           sortKey: -1743541267947
         method: DELETE
@@ -69,15 +72,24 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - name: updateUser
+      - url: http://localhost:3001/api/users/67edcd2002b13bd3c4614368
+        name: updateUser
         meta:
-          id: req_b77fe73eaf574dc7b5387ed999c188b6
+          id: req_4323676abd0c4f01be7ed3d4fb1035b4
           created: 1743541065779
-          modified: 1743617747912
+          modified: 1743639414871
           isPrivate: false
           sortKey: -1743541267972
-        method: PATCH
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "alice@thebomb.com"
+            }
         headers:
+          - name: Content-Type
+            value: application/json
           - name: User-Agent
             value: insomnia/11.0.0
         settings:
@@ -88,15 +100,25 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - name: createUser
+      - url: http://localhost:3001/api/users
+        name: createUser
         meta:
-          id: req_17e839954efd40be94f21d6c672a7f49
+          id: req_4cae0884d4a342cbb80916cc3681c9e0
           created: 1743541066574
-          modified: 1743617742571
+          modified: 1743638569465
           isPrivate: false
           sortKey: -1743541267997
         method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"username": "ike", 
+            	"email": "ike@ike.coffee"
+            }
         headers:
+          - name: Content-Type
+            value: application/json
           - name: User-Agent
             value: insomnia/11.0.0
         settings:
@@ -110,7 +132,7 @@ collection:
       - url: http://localhost:3001/api/users
         name: allUsers
         meta:
-          id: req_f98ec5ecb5f64a18bac31b4e219919a6
+          id: req_85736b8593de4d4885b44f9f09199d67
           created: 1743541067342
           modified: 1743625303214
           isPrivate: false
@@ -129,17 +151,17 @@ collection:
           rebuildPath: true
   - name: Thoughts
     meta:
-      id: fld_7f0b0f7194634b75b00ac789c5d40884
+      id: fld_b56070d92a504db4b6ed1e6ecdf926ef
       created: 1743541373656
       modified: 1743541373656
       sortKey: -1743541373656
     children:
-      - url: http://localhost:3001/api/thoughts/67ed9489a0552f245ecda68b/reactions/67ed9d5af45ee03e9b5f90d4
+      - url: http://localhost:3001/api/thoughts/67edcc141c120a6c2a9c1af4/reactions/67edcd2002b13bd3c4614373
         name: deleteReaction
         meta:
-          id: req_090e03758e36432689950c6055f5cf5b
+          id: req_0c1c36f15a4848d9887daf96404f0404
           created: 1743541394808
-          modified: 1743625580809
+          modified: 1743637863160
           isPrivate: false
           sortKey: -1743541397480
         method: DELETE
@@ -154,12 +176,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3001/api/thoughts/67ed9489a0552f245ecda68b/reactions
+      - url: http://localhost:3001/api/thoughts/67edcaa7554d03141333de62/reactions
         name: createReaction
         meta:
-          id: req_5ba0070c76aa474999f6efd6b5946ac8
+          id: req_ef08aff0bbf245c5bec77440f5533cf3
           created: 1743541399154
-          modified: 1743625362302
+          modified: 1743637349754
           isPrivate: false
           sortKey: -1743541399154
         method: POST
@@ -183,12 +205,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3001/api/thoughts/67ed9e80fcfafe94690f1099
+      - url: http://localhost:3001/api/thoughts/67edcc466eea3e4fc2bf74be
         name: deleteThought
         meta:
-          id: req_46bbbb43db944472b0e02d6c4127702e
+          id: req_1039ecc1e9524cc089648735a494ea40
           created: 1743541410801
-          modified: 1743625981309
+          modified: 1743637657397
           isPrivate: false
           sortKey: -1743541410801
         method: DELETE
@@ -203,12 +225,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3001/api/thoughts/67ed99916e458434554eab49
+      - url: http://localhost:3001/api/thoughts/67edcc141c120a6c2a9c1af4
         name: updateThought
         meta:
-          id: req_6bedfd7f1e284198ac143a0e326b76eb
+          id: req_f042d2ad759549cfa36c23484133cc8e
           created: 1743541411864
-          modified: 1743624995415
+          modified: 1743637670443
           isPrivate: false
           sortKey: -1743541411864
         method: PUT
@@ -232,12 +254,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3001/api/thoughts/67ed99916e458434554eab49
+      - url: http://localhost:3001/api/thoughts/67edcc141c120a6c2a9c1af4
         name: getThoughtById
         meta:
-          id: req_d571e13778fb4c37a66026af5442e385
+          id: req_3fbcf7852d41410fab1c409dde61eeda
           created: 1743541412778
-          modified: 1743624642798
+          modified: 1743637632776
           isPrivate: false
           sortKey: -1743541412778
         method: GET
@@ -255,7 +277,7 @@ collection:
       - url: http://localhost:3001/api/thoughts
         name: createThought
         meta:
-          id: req_65a1da15347e4234842c991c7b5e1c28
+          id: req_b3a527ecfad44bc8b1d492a06afd18c1
           created: 1743541413582
           modified: 1743624591282
           isPrivate: false
@@ -285,7 +307,7 @@ collection:
       - url: http://localhost:3001/api/thoughts
         name: allThoughts
         meta:
-          id: req_73b066abc4e44173bca3ebb4d658437c
+          id: req_9fec97914dc045be94cc33647158232e
           created: 1743541414447
           modified: 1743622559162
           isPrivate: false
@@ -305,13 +327,13 @@ collection:
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_30c91c9c028fd3194ebea26351b2bb6667241b16
+    id: jar_61ac3742beb743b9ab9bbbb6a74f070e
     created: 1743541038211
     modified: 1743541038211
 environments:
   name: Base Environment
   meta:
-    id: env_30c91c9c028fd3194ebea26351b2bb6667241b16
+    id: env_955f3e727e0c4c5aaceb500c4b289b71
     created: 1743541038203
     modified: 1743541038203
     isPrivate: false
