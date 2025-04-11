@@ -6,7 +6,7 @@ This project is a social network API built with Node.js, Express, and MongoDB. I
 
 [Click for Github Repo](https://github.com/IkeAlmighty/social-network-nosql-db.git)
 
-[Click for video walkthrough]()
+[Click for video walkthrough](https://app.screencastify.com/v3/watch/fNGzur1dYPnQ0zzExZWf)
 
 ## Installation
 
